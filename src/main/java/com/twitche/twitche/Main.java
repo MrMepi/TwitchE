@@ -1,5 +1,6 @@
 package com.twitche.twitche;
 
+import com.twitche.twitche.Controller.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,6 +19,7 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
+        MainController.setInstance((MainController) fxmlLoader.getController());
     }
 
     public static void main(String[] args) {
