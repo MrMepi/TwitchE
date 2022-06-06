@@ -13,4 +13,6 @@ module com.twitche.twitche {
     exports com.twitche.twitche;
     exports com.twitche.twitche.Controller;
     opens com.twitche.twitche.Controller to javafx.fxml;
+    exports com.twitche.twitche.Config;
+    opens com.twitche.twitche.Config to javafx.fxml;
 }

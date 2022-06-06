@@ -9,14 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e7fd580-5f70-4bf8-a383-1d69db3af8b8" name="Changes" comment="Twitch Emotes and Twitch Badges">
+    <list default="true" id="0e7fd580-5f70-4bf8-a383-1d69db3af8b8" name="Changes" comment="Refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Config/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/twitche/twitche/App.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/twitche/twitche/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/twitche/twitche/Controller/MainController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/twitche/twitche/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/twitche/twitche/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/twitche/twitche/Utils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,9 +80,9 @@
       <recent name="C:\Users\artur\IdeaProjects\TwitchE\src\main\java\META-INFO" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.twitche.twitche.Controller" />
       <recent name="com.twitche.twitche" />
       <recent name="" />
+      <recent name="com.twitche.twitche.Controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.twitche.twitche.Controller" />
@@ -85,11 +90,11 @@
   </component>
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.twitche.twitche.App" />
+      <option name="MAIN_CLASS_NAME" value="com.twitche.twitche.Config.App" />
       <module name="TwitchE" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.twitche.twitche.Controller.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -98,13 +103,13 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.twitche.twitche.Main" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="TwitchE" />
       <option name="PROGRAM_PARAMETERS" value="-Xmx2048m" />
       <option name="VM_PARAMETERS" value="-Xmx2024m" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.twitche.twitche.Controller.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -149,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654248824003</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Refactoring">
+      <created>1654528997423</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654528997423</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -177,35 +189,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Twitch Emotes and Twitch Badges" />
-    <option name="LAST_COMMIT_MESSAGE" value="Twitch Emotes and Twitch Badges" />
+    <MESSAGE value="Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/MainController.java</url>
-          <line>290</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/twitche/twitche/Main.java</url>
-          <line>21</line>
+          <line>19</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/MainController.java</url>
-          <line>334</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/MainController.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/MainController.java</url>
-          <line>301</line>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

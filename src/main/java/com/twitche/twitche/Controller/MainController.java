@@ -1,190 +1,21 @@
 package com.twitche.twitche.Controller;
 
-import com.twitche.twitche.Size;
 import com.twitche.twitche.Type;
+import com.twitche.twitche.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Cursor;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
-import javafx.stage.FileChooser;
-import javafx.embed.swing.SwingFXUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
-import java.util.List;
 
 public class MainController {
 
     //region
-    @FXML
-    private VBox Box1x1;
-
-    @FXML
-    private VBox Box1x2;
-
-    @FXML
-    private VBox Box1x3;
-
-    @FXML
-    private VBox Box1x4;
-
-    @FXML
-    private VBox Box1x5;
-
-    @FXML
-    private VBox Box1x6;
-
-    @FXML
-    private VBox Box2x1;
-
-    @FXML
-    private VBox Box2x2;
-
-    @FXML
-    private VBox Box2x3;
-
-    @FXML
-    private VBox Box2x4;
-
-    @FXML
-    private VBox Box2x5;
-
-    @FXML
-    private VBox Box2x6;
-
-    @FXML
-    private VBox Box3x1;
-
-    @FXML
-    private VBox Box3x2;
-
-    @FXML
-    private VBox Box3x3;
-
-    @FXML
-    private VBox Box3x4;
-
-    @FXML
-    private VBox Box3x5;
-
-    @FXML
-    private VBox Box3x6;
-
-    @FXML
-    private Button Button1x1;
-
-    @FXML
-    private Button Button1x2;
-
-    @FXML
-    private Button Button1x3;
-
-    @FXML
-    private Button Button1x4;
-
-    @FXML
-    private Button Button1x5;
-
-    @FXML
-    private Button Button1x6;
-
-    @FXML
-    private Button Button2x1;
-
-    @FXML
-    private Button Button2x2;
-
-    @FXML
-    private Button Button2x3;
-
-    @FXML
-    private Button Button2x4;
-
-    @FXML
-    private Button Button2x5;
-
-    @FXML
-    private Button Button2x6;
-
-    @FXML
-    private Button Button3x1;
-
-    @FXML
-    private Button Button3x2;
-
-    @FXML
-    private Button Button3x3;
-
-    @FXML
-    private Button Button3x4;
-
-    @FXML
-    private Button Button3x5;
-
-    @FXML
-    private Button Button3x6;
-
-    @FXML
-    private TextField TF1x1;
-
-    @FXML
-    private TextField TF1x2;
-
-    @FXML
-    private TextField TF1x3;
-
-    @FXML
-    private TextField TF1x4;
-
-    @FXML
-    private TextField TF1x5;
-
-    @FXML
-    private TextField TF1x6;
-
-    @FXML
-    private TextField TF2x1;
-
-    @FXML
-    private TextField TF2x2;
-
-    @FXML
-    private TextField TF2x3;
-
-    @FXML
-    private TextField TF2x4;
-
-    @FXML
-    private TextField TF2x5;
-
-    @FXML
-    private TextField TF2x6;
-
-    @FXML
-    private TextField TF3x1;
-
-    @FXML
-    private TextField TF3x2;
-
-    @FXML
-    private TextField TF3x3;
-
-    @FXML
-    private TextField TF3x4;
-
-    @FXML
-    private TextField TF3x5;
-
-    @FXML
-    private TextField TF3x6;
-
     @FXML
     private ImageView img1x1;
 

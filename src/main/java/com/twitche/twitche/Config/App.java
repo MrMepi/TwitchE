@@ -1,4 +1,6 @@
-package com.twitche.twitche;
+package com.twitche.twitche.Config;
+
+import com.twitche.twitche.Main;
 
 public class App {
     public static void main(String[] args) {

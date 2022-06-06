@@ -1,6 +1,5 @@
-package com.twitche.twitche.Controller;
-import com.twitche.twitche.Size;
-import com.twitche.twitche.Type;
+package com.twitche.twitche;
+import com.twitche.twitche.Controller.MainController;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.scene.Cursor;
@@ -25,8 +24,8 @@ public class Utils {
     static int x = 156, y = 228, w = 448, h = 448;
     static String filename = "";
     static Image img2 = null;
-    static List<VBox> vBoxs = new ArrayList<>();
-    static Map<Button, TextField> buttonList = new HashMap<>();
+    public static List<VBox> vBoxs = new ArrayList<>();
+    public static Map<Button, TextField> buttonList = new HashMap<>();
 
     public static void cropImageAndSaveToFile(BufferedImage src, int w, int h, int x, int y, String name, int rX, int rY){
         try {
