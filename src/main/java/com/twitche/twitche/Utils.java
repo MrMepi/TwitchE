@@ -15,7 +15,6 @@ import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 
@@ -40,7 +39,7 @@ public class Utils {
         }
     }
 
-    public static Image cropImage(BufferedImage src, int w, int h, int x, int y, int rX, int rY) throws IOException {
+    public static Image cropImage(BufferedImage src, int w, int h, int x, int y, int rX, int rY) {
         try {
             BufferedImage dst = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
             dst.getGraphics().drawImage(src, 0, 0, w, h, x, y, x + w, y + h, null);
@@ -62,7 +61,7 @@ public class Utils {
     }
 
 
-    public static void VieweEmote(MouseEvent event) throws IOException {
+    public static void VieweEmote(MouseEvent event) {
         List<Button> emote = new ArrayList<>();
         if (event.getButton() == MouseButton.SECONDARY) {
             if (!MainController.getInstance().getEmote().isVisible()) MainController.getInstance().getEmote().setVisible(true);
@@ -149,7 +148,7 @@ public class Utils {
         }
     }
 
-    public static void writeFile(ActionEvent event){
+    public static void writeFile(){
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("png", "*.png"));
@@ -161,7 +160,7 @@ public class Utils {
         }
     }
     public static void setImgToMainWindow(AnchorPane mainWindows, File file){
-        Image img =  SwingFXUtils.toFXImage(Utils.resizeImage(SwingFXUtils.fromFXImage(new Image(file.getPath()),null), (int)mainWindows.getWidth(), (int)mainWindows.getHeight()),null);
+        Image img =  SwingFXUtils.toFXImage(Utils.resizeImage(SwingFXUtils.fromFXImage(new Image("file:///"+file.getPath().replace("\\","/")),null), (int)mainWindows.getWidth(), (int)mainWindows.getHeight()),null);
         img2 = new Image(file.getPath());
         filename = file.getPath().replace(".png","");
 

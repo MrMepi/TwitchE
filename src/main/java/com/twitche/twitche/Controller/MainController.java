@@ -1,17 +1,28 @@
 package com.twitche.twitche.Controller;
 
+import com.twitche.twitche.Main;
 import com.twitche.twitche.Type;
 import com.twitche.twitche.Utils;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
-
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class MainController {
 
@@ -54,6 +65,9 @@ public class MainController {
 
     @FXML
     private AnchorPane Emote;
+
+    @FXML
+    private AnchorPane mainGrind;
 
     @FXML
     private AnchorPane mainWindows;
@@ -117,11 +131,7 @@ public class MainController {
     //endregion
 
     private static MainController instance = new MainController();
-
-    public static void setInstance(MainController i){
-        instance = i;
-    }
-
+    public static void setInstance(MainController mainController){ instance = mainController; }
     public static MainController getInstance(){
         return instance;
     }
@@ -150,15 +160,15 @@ public class MainController {
 
     @FXML
     void openFile(ActionEvent event){
-       Utils.writeFile(event);
+       Utils.writeFile();
     }
 
     @FXML
-    void ExportTo(ActionEvent event) throws IOException {
+    void ExportTo(ActionEvent event) {
         Utils.exportTo();
     }
     @FXML
-    void Export(ActionEvent event) throws IOException {
+    void Export(ActionEvent event) {
         Utils.export();
     }
     @FXML
@@ -172,7 +182,6 @@ public class MainController {
 
         Utils.setImgToMainWindow(mainWindows,file);
     }
-
 
     @FXML
     void dragOver(DragEvent event) {
@@ -191,6 +200,38 @@ public class MainController {
         } else if(Type.Badge.name().equals(button.getText())){
             button.setStyle("-fx-background-color: rgba(255,255,255,0.1)");
             button.setText(Type.None.name());
+        }
+    }
+
+    @FXML
+    void openCalculator(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader =new FXMLLoader(Main.class.getResource("calculator.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("TwitchE - MrMepi & Doootka");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(mainGrind.getScene().getWindow());
+            stage.show();
+        } catch (IOException e) {
+
+        }
+    }
+
+    @FXML
+    void openSettings(ActionEvent event) {
+        try {
+           FXMLLoader fxmlLoader =new FXMLLoader(Main.class.getResource("settings.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("TwitchE - MrMepi & Doootka");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(mainGrind.getScene().getWindow());
+            stage.show();
+        } catch (IOException e) {
+
         }
     }
 }
