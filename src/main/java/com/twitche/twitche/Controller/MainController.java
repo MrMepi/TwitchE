@@ -1,28 +1,27 @@
 package com.twitche.twitche.Controller;
 
 import com.twitche.twitche.Main;
-import com.twitche.twitche.Type;
+import com.twitche.twitche.Model.SettingsDefaultOptions;
+import com.twitche.twitche.Model.Type;
 import com.twitche.twitche.Utils;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.Optional;
 
 public class MainController {
 
@@ -227,9 +226,31 @@ public class MainController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("TwitchE - MrMepi & Doootka");
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                public void handle(WindowEvent we) {
+                    if(SettingsDefaultOptions.isContext()) {
+                        we.consume();
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION,
+                                "Click the Yes button to save changes and exit",
+                                ButtonType.YES,
+                                ButtonType.NO);
+
+                        Optional<ButtonType> result = alert.showAndWait();
+                        if(result.orElse(ButtonType.YES) == ButtonType.YES)
+                        {
+
+                        } else {
+                            stage.close();
+                        }
+                    }
+                    else
+                        stage.close();
+                }
+            });
             stage.initModality(Modality.WINDOW_MODAL);
             stage.initOwner(mainGrind.getScene().getWindow());
             stage.show();
+
         } catch (IOException e) {
 
         }

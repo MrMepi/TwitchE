@@ -1,16 +1,11 @@
 package com.twitche.twitche.Controller;
 
-import com.twitche.twitche.SettingsDefault;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import com.twitche.twitche.Model.SettingsDefaultOptions;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.*;
 import java.net.URL;
@@ -71,15 +66,15 @@ public class SettingsController implements Initializable {
                 emorePerSpecial.setText(split[7]);
                 emoteSpecialOffer.setText(split[8]);
             } else {
-                emotePrice.setText(String.valueOf(SettingsDefault.getCostEmotes()));
-                badgePrice.setText(String.valueOf(SettingsDefault.getCostBadge()));
-                animatedPrice.setText(String.valueOf(SettingsDefault.getCostAnimated()));
-                emotePer.setText(String.valueOf(SettingsDefault.getEmotesPer()));
-                emotePricePer.setText(String.valueOf(SettingsDefault.getCostEmotesProm()));
-                BadgePer.setText(String.valueOf(SettingsDefault.getBadgesPer()));
-                BadgePricePer.setText(String.valueOf(SettingsDefault.getCostBadgeProm()));
-                emorePerSpecial.setText(String.valueOf(SettingsDefault.getHowMuchToPromotion()));
-                emoteSpecialOffer.setText(String.valueOf(SettingsDefault.getPromo()));
+                emotePrice.setText(String.valueOf(SettingsDefaultOptions.getCostEmotes()));
+                badgePrice.setText(String.valueOf(SettingsDefaultOptions.getCostBadge()));
+                animatedPrice.setText(String.valueOf(SettingsDefaultOptions.getCostAnimated()));
+                emotePer.setText(String.valueOf(SettingsDefaultOptions.getEmotesPer()));
+                emotePricePer.setText(String.valueOf(SettingsDefaultOptions.getCostEmotesProm()));
+                BadgePer.setText(String.valueOf(SettingsDefaultOptions.getBadgesPer()));
+                BadgePricePer.setText(String.valueOf(SettingsDefaultOptions.getCostBadgeProm()));
+                emorePerSpecial.setText(String.valueOf(SettingsDefaultOptions.getHowMuchToPromotion()));
+                emoteSpecialOffer.setText(String.valueOf(SettingsDefaultOptions.getPromo()));
             }
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
@@ -112,15 +107,11 @@ public class SettingsController implements Initializable {
         } catch (IOException e) {
 
         }
-        contexChange = false;
+        SettingsDefaultOptions.setContext(false);
     }
-    boolean contexChange = false;
+
     @FXML
     void anyChange(KeyEvent event) {
-        contexChange = true;
-    }
-    @FXML
-    public void exitApplication(ActionEvent event) {
-        System.out.println("test");
+        SettingsDefaultOptions.setContext(true);
     }
 }

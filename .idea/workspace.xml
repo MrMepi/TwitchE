@@ -10,20 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e7fd580-5f70-4bf8-a383-1d69db3af8b8" name="Changes" comment="Refactoring">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/SettingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/SettingsDefault.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/twitche/twitche/calculator.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/com/twitche/twitche/UtilsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/resources/Template.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Model/Controller/SettingsControllerModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TwitchE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TwitchE.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/TwitchE_jar/TwitchE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TwitchE_jar/TwitchE.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/SettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/SettingsDefault.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Model/SettingsDefaultOptions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Model/Size.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Model/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twitche/twitche/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/twitche/twitche/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/twitche/twitche/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/twitche/twitche/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/twitche/twitche/Controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/twitche/twitche/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/twitche/twitche/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/twitche/twitche/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/twitche/twitche/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/twitche/twitche/Size.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/twitche/twitche/Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +142,7 @@
       <module name="TwitchE" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.twitche.twitche.*" />
+          <option name="PATTERN" value="com.twitche.twitche.Model.Controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -205,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654530585527</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Refactoring">
+      <created>1654807571054</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1654807571054</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,23 +248,23 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/twitche/twitche/Utils.java</url>
-          <line>30</line>
+          <line>31</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/SettingsController.java</url>
-          <line>54</line>
+          <line>49</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/SettingsController.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="22" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/CalculatorController.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/CalculatorController.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="23" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/twitche/twitche/Controller/MainController.java</url>
+          <line>237</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

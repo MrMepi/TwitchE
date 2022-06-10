@@ -1,7 +1,8 @@
 package com.twitche.twitche;
 import com.twitche.twitche.Controller.MainController;
+import com.twitche.twitche.Model.Size;
+import com.twitche.twitche.Model.Type;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.event.ActionEvent;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
