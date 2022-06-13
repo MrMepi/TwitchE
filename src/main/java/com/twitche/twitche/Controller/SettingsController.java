@@ -1,5 +1,6 @@
 package com.twitche.twitche.Controller;
 
+import com.twitche.twitche.Model.Controller.SettingsControllerModel;
 import com.twitche.twitche.Model.SettingsDefaultOptions;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -112,6 +113,8 @@ public class SettingsController implements Initializable {
 
     @FXML
     void anyChange(KeyEvent event) {
+
         SettingsDefaultOptions.setContext(true);
+        SettingsControllerModel.getInstance().setEmotePrice(emotePrice);
     }
 }

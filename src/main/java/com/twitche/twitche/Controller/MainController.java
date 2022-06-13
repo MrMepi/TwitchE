@@ -1,6 +1,7 @@
 package com.twitche.twitche.Controller;
 
 import com.twitche.twitche.Main;
+import com.twitche.twitche.Model.Controller.SettingsControllerModel;
 import com.twitche.twitche.Model.SettingsDefaultOptions;
 import com.twitche.twitche.Model.Type;
 import com.twitche.twitche.Utils;
@@ -9,10 +10,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
@@ -130,13 +128,15 @@ public class MainController {
     //endregion
 
     private static MainController instance = new MainController();
+
     public static void setInstance(MainController mainController){ instance = mainController; }
+
     public static MainController getInstance(){
         return instance;
     }
 
-    public void initialize(){
-
+    public void initialize() throws IOException {
+        Utils.loadTMPFile();
         for(int i=0; i<mainWindows.getChildren().size(); i++)
             if(mainWindows.getChildren().get(i) instanceof VBox) {
                 Utils.vBoxs.add((VBox)mainWindows.getChildren().get(i));
@@ -210,11 +210,24 @@ public class MainController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("TwitchE - MrMepi & Doootka");
+            stage.setResizable(false);
             stage.initModality(Modality.WINDOW_MODAL);
             stage.initOwner(mainGrind.getScene().getWindow());
             stage.show();
         } catch (IOException e) {
 
+        }
+    }
+
+    @FXML
+    void showView(MouseEvent event) {
+        Label label = (Label) event.getSource();
+        if(label.getText().equals("⮟")) {
+            label.setText("⮝");
+            Main.stage.setHeight(850);
+        } else {
+            label.setText("⮟");
+            Main.stage.setHeight(720);
         }
     }
 
@@ -226,6 +239,7 @@ public class MainController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("TwitchE - MrMepi & Doootka");
+            stage.setResizable(false);
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 public void handle(WindowEvent we) {
                     if(SettingsDefaultOptions.isContext()) {
@@ -238,7 +252,7 @@ public class MainController {
                         Optional<ButtonType> result = alert.showAndWait();
                         if(result.orElse(ButtonType.YES) == ButtonType.YES)
                         {
-
+                            System.out.println(SettingsControllerModel.getInstance().getEmotePrice().getText());
                         } else {
                             stage.close();
                         }

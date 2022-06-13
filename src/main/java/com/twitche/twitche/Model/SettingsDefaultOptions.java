@@ -12,6 +12,8 @@ public class SettingsDefaultOptions {
     static int promo = 15;
     static boolean context = false;
 
+    static String path = "";
+
     public static int getCostEmotes() {
         return costEmotes;
     }
@@ -90,5 +92,14 @@ public class SettingsDefaultOptions {
 
     public static void setContext(boolean context) {
         SettingsDefaultOptions.context = context;
+    }
+
+    public static String getPath() {
+        return path;
+    }
+
+    public static void setPath(String pathnew) {
+        if(pathnew != null)
+            path = pathnew;
     }
 }

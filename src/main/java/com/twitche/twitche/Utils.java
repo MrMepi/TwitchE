@@ -1,5 +1,7 @@
 package com.twitche.twitche;
 import com.twitche.twitche.Controller.MainController;
+import com.twitche.twitche.Controller.SettingsController;
+import com.twitche.twitche.Model.SettingsDefaultOptions;
 import com.twitche.twitche.Model.Size;
 import com.twitche.twitche.Model.Type;
 import javafx.embed.swing.SwingFXUtils;
@@ -14,9 +16,16 @@ import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
+import javax.swing.filechooser.FileSystemView;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.io.*;
+import java.nio.channels.SeekableByteChannel;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
+import java.util.List;
 
 
 public class Utils {
@@ -153,13 +162,51 @@ public class Utils {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("png", "*.png"));
-        fileChooser.setTitle("Open Resource File");
-        File selectedFile = fileChooser.showOpenDialog(MainController.getInstance().getMainWindows().getScene().getWindow());
+        File file;
+        if(SettingsDefaultOptions.getPath().isBlank() || SettingsDefaultOptions.getPath().isEmpty())
+        {
+            FileSystemView filesys = FileSystemView.getFileSystemView();
+            file = new File(filesys.getHomeDirectory().getPath());
+        } else {
+            file = new File(SettingsDefaultOptions.getPath());
+        }
 
+        fileChooser.setInitialDirectory(file);
+        fileChooser.setTitle("Open Resource File");
+        File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
+            createTMPFile(selectedFile.getParentFile().getPath());
             setImgToMainWindow(MainController.getInstance().getMainWindows(), selectedFile);
         }
     }
+
+    private static void createTMPFile(String path){
+        try {
+            File myObj = new File("newSettings.xml");
+            myObj.delete();
+            Properties saveProps = new Properties();
+            saveProps.setProperty("lastpath", path);
+            SettingsDefaultOptions.setPath(path);
+            saveProps.storeToXML(new FileOutputStream("newSettings.xml"), "");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadTMPFile(){
+        Properties loadProps = new Properties();
+        try {
+            loadProps.loadFromXML(new FileInputStream("newSettings.xml"));
+            SettingsDefaultOptions.setPath(loadProps.getProperty("lastpath"));
+        } catch (FileNotFoundException e){
+            //file  file does not exist
+        } catch (InvalidPropertiesFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void setImgToMainWindow(AnchorPane mainWindows, File file){
         Image img =  SwingFXUtils.toFXImage(Utils.resizeImage(SwingFXUtils.fromFXImage(new Image("file:///"+file.getPath().replace("\\","/")),null), (int)mainWindows.getWidth(), (int)mainWindows.getHeight()),null);
         img2 = new Image(file.getPath());
@@ -219,6 +266,7 @@ public class Utils {
         Utils.export(emote,emoteSize);
 
         List<Size> badgesSize = new ArrayList<Size>();
+        badgesSize.add(new Size(488,488));
         badgesSize.add(new Size(72,72));
         badgesSize.add(new Size(36,36));
         badgesSize.add(new Size(18,18));
