@@ -1,6 +1,5 @@
-package com.twitche.twitche;
+package com.twitche.twitche.Implementation;
 import com.twitche.twitche.Controller.MainController;
-import com.twitche.twitche.Controller.SettingsController;
 import com.twitche.twitche.Model.SettingsDefaultOptions;
 import com.twitche.twitche.Model.Size;
 import com.twitche.twitche.Model.Type;
@@ -17,13 +16,8 @@ import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
 import javax.swing.filechooser.FileSystemView;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.nio.channels.SeekableByteChannel;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.*;
 import java.util.List;
 

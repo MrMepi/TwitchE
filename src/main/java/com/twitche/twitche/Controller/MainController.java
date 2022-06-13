@@ -4,7 +4,7 @@ import com.twitche.twitche.Main;
 import com.twitche.twitche.Model.Controller.SettingsControllerModel;
 import com.twitche.twitche.Model.SettingsDefaultOptions;
 import com.twitche.twitche.Model.Type;
-import com.twitche.twitche.Utils;
+import com.twitche.twitche.Implementation.Utils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
