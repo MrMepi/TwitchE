@@ -29,6 +29,8 @@ public class Utils {
     static Image img2 = null;
     public static List<VBox> vBoxs = new ArrayList<>();
     public static Map<Button, TextField> buttonList = new HashMap<>();
+    static List<Size> emoteSize = new ArrayList<Size>();
+    static List<Size> badgesSize = new ArrayList<Size>();
 
     public static void cropImageAndSaveToFile(BufferedImage src, int w, int h, int x, int y, String name, int rX, int rY){
         try {
@@ -245,27 +247,57 @@ public class Utils {
     public static void export(){
         List<Button> emote = new ArrayList<>();
         List<Button> badge = new ArrayList<>();
-        MainController.getInstance().getMainWindows().setCursor(Cursor.WAIT);
         for (Button button: buttonList.keySet()) {
             if(button.getText().equals(Type.Emote.name())) emote.add(button);
             if(button.getText().equals(Type.Badge.name())) badge.add(button);
         }
         new File(filename).mkdirs();
-
-        List<Size> emoteSize = new ArrayList<Size>();
-        emoteSize.add(new Size(448,448));
-        emoteSize.add(new Size(112,112));
-        emoteSize.add(new Size(56,56));
-        emoteSize.add(new Size(28,28));
+        loadSize();
+        if(emoteSize.size() == 0) {
+            emoteSize.add(new Size(448, 448));
+            emoteSize.add(new Size(112, 112));
+            emoteSize.add(new Size(56, 56));
+            emoteSize.add(new Size(28, 28));
+        }
         Utils.export(emote,emoteSize);
 
-        List<Size> badgesSize = new ArrayList<Size>();
-        badgesSize.add(new Size(488,488));
-        badgesSize.add(new Size(72,72));
-        badgesSize.add(new Size(36,36));
-        badgesSize.add(new Size(18,18));
+        if(badgesSize.size() == 0) {
+            badgesSize.add(new Size(448, 448));
+            badgesSize.add(new Size(72, 72));
+            badgesSize.add(new Size(36, 36));
+            badgesSize.add(new Size(18, 18));
+        }
         Utils.export(badge,badgesSize);
+    }
 
-        MainController.getInstance().getMainWindows().setCursor(Cursor.DEFAULT);
+    static void loadSize() {
+        Properties loadProps = new Properties();
+        try {
+            loadProps.loadFromXML(new FileInputStream("settingsScalling.xml"));
+            List<String> list = new ArrayList<>();
+            String[] xml = loadProps.toString().replace("{", "")
+                    .replace("}", "")
+                    .replace(" ", "")
+                    .split(",");
+
+            Collections.addAll(list, xml);
+            for (String s : list) {
+                if(!s.isEmpty()) {
+                    if (String.valueOf(s.charAt(0)).equals("B")) {
+                        String[] split = s.substring(3).split("x");
+                        badgesSize.add(new Size(Integer.parseInt(split[0]), Integer.parseInt(split[1])));
+                    } else {
+                        String[] split = s.substring(3).split("x");
+                        emoteSize.add(new Size(Integer.parseInt(split[0]), Integer.parseInt(split[1])));
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            //file  file does not exist
+        } catch (InvalidPropertiesFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -19,13 +19,14 @@
    <root>
        <AnchorPane id="mainWindow" fx:id="mainGrind" prefHeight="813.0" prefWidth="1160.0">
          <children>
-            <MenuBar layoutX="-2.0" prefHeight="28.0" prefWidth="1166.0">
+            <MenuBar layoutX="-1.0" prefHeight="28.0" prefWidth="1165.0">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open" />
                         <MenuItem mnemonicParsing="false" onAction="#Export" text="Export " />
                         <MenuItem mnemonicParsing="false" onAction="#ExportTo" text="Export in Size..." />
+                        <MenuItem mnemonicParsing="false" onAction="#openSettingsScalling" text="Settings" />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" text="Calculator">
@@ -47,7 +48,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF1x1" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="135.0" text="1" />
+                              <TextField fx:id="TF1x1" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="135.0" text="1_" />
                            </children>
                         </VBox>
                         <VBox id="Box1x2" fx:id="Box1x2" layoutX="234.0" layoutY="73.0" prefHeight="173.0" prefWidth="138.0">
@@ -57,7 +58,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF1x2" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="2" />
+                              <TextField fx:id="TF1x2" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="2_" />
                            </children>
                         </VBox>
                         <VBox id="Box1x3" fx:id="Box1x3" layoutX="416.0" layoutY="74.0" prefHeight="173.0" prefWidth="138.0">
@@ -67,7 +68,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF1x3" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="3" />
+                              <TextField fx:id="TF1x3" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="3_" />
                            </children>
                         </VBox>
                         <VBox id="Box1x4" fx:id="Box1x4" layoutX="598.0" layoutY="74.0" prefHeight="173.0" prefWidth="147.0">
@@ -77,7 +78,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF1x4" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="145.0" text="4" />
+                              <TextField fx:id="TF1x4" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="145.0" text="4_" />
                            </children>
                         </VBox>
                         <VBox id="Box1x5" fx:id="Box1x5" layoutX="780.0" layoutY="73.0" prefHeight="173.0" prefWidth="149.0">
@@ -87,7 +88,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF1x5" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="5" />
+                              <TextField fx:id="TF1x5" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="5_" />
                            </children>
                         </VBox>
                         <VBox id="Box1x6" fx:id="Box1x6" layoutX="963.0" layoutY="74.0" prefHeight="173.0" prefWidth="150.0">
@@ -97,7 +98,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF1x6" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="6" />
+                              <TextField fx:id="TF1x6" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="6_" />
                            </children>
                         </VBox>
                         <VBox id="Box2x1" fx:id="Box2x1" layoutX="50.0" layoutY="258.0" prefHeight="173.0" prefWidth="138.0">
@@ -107,7 +108,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF2x1" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="7" />
+                              <TextField fx:id="TF2x1" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="7_" />
                            </children>
                         </VBox>
                         <VBox id="Box2x2" fx:id="Box2x2" layoutX="234.0" layoutY="257.0" prefHeight="175.0" prefWidth="149.0">
@@ -117,7 +118,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF2x2" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="8" />
+                              <TextField fx:id="TF2x2" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="8_" />
                            </children>
                         </VBox>
                         <VBox id="Box2x3" fx:id="Box2x3" layoutX="416.0" layoutY="257.0" prefHeight="173.0" prefWidth="138.0">
@@ -127,7 +128,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF2x3" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="9" />
+                              <TextField fx:id="TF2x3" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="9_" />
                            </children>
                         </VBox>
                         <VBox id="Box2x4" fx:id="Box2x4" layoutX="598.0" layoutY="257.0" prefHeight="173.0" prefWidth="153.0">
@@ -137,7 +138,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF2x4" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="121.0" text="10" />
+                              <TextField fx:id="TF2x4" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="121.0" text="10_" />
                            </children>
                         </VBox>
                         <VBox id="Box2x5" fx:id="Box2x5" layoutX="781.0" layoutY="257.0" prefHeight="173.0" prefWidth="139.0">
@@ -147,7 +148,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF2x5" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="11" />
+                              <TextField fx:id="TF2x5" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="11_" />
                            </children>
                         </VBox>
                         <VBox id="Box2x6" fx:id="Box2x6" layoutX="963.0" layoutY="257.0" prefHeight="173.0" prefWidth="147.0">
@@ -157,7 +158,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF2x6" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="12" />
+                              <TextField fx:id="TF2x6" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="12_" />
                            </children>
                         </VBox>
                         <VBox id="Box3x1" fx:id="Box3x1" layoutX="52.0" layoutY="438.0" prefHeight="173.0" prefWidth="138.0">
@@ -167,7 +168,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF3x1" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="13" />
+                              <TextField fx:id="TF3x1" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="13_" />
                            </children>
                         </VBox>
                         <VBox id="Box3x2" fx:id="Box3x2" layoutX="234.0" layoutY="438.0" prefHeight="173.0" prefWidth="138.0">
@@ -177,7 +178,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF3x2" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="14" />
+                              <TextField fx:id="TF3x2" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="14_" />
                            </children>
                         </VBox>
                         <VBox id="Box3x3" fx:id="Box3x3" layoutX="416.0" layoutY="438.0" prefHeight="173.0" prefWidth="138.0">
@@ -187,7 +188,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF3x3" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="15" />
+                              <TextField fx:id="TF3x3" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="15_" />
                            </children>
                         </VBox>
                         <VBox id="Box3x4" fx:id="Box3x4" layoutX="598.0" layoutY="438.0" prefHeight="173.0" prefWidth="150.0">
@@ -197,7 +198,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF3x4" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="16" />
+                              <TextField fx:id="TF3x4" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="16_" />
                            </children>
                         </VBox>
                         <VBox id="Box3x5" fx:id="Box3x5" layoutX="780.0" layoutY="438.0" prefHeight="173.0" prefWidth="150.0">
@@ -207,7 +208,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF3x5" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="17" />
+                              <TextField fx:id="TF3x5" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="17_" />
                            </children>
                         </VBox>
                         <VBox id="Box3x6" fx:id="Box3x6" layoutX="962.0" layoutY="438.0" prefHeight="173.0" prefWidth="148.0">
@@ -217,7 +218,7 @@
                                     <Font name="System Italic" size="11.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="TF3x6" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="18" />
+                              <TextField fx:id="TF3x6" alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="132.0" text="18_" />
                            </children>
                         </VBox>
                         <Label layoutX="571.0" layoutY="625.0" onMouseClicked="#showView" prefHeight="30.0" prefWidth="24.0" text="⮟">

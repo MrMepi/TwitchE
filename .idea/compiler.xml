@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="TwitchE" target="17" />
+      <module name="TwitchE" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

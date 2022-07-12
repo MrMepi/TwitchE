@@ -269,4 +269,22 @@ public class MainController {
 
         }
     }
+
+
+    @FXML
+    void openSettingsScalling(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader =new FXMLLoader(Main.class.getResource("settingsScalling.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("TwitchE - MrMepi & Doootka");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(mainGrind.getScene().getWindow());
+            stage.show();
+        } catch (IOException e) {
+
+        }
+
+    }
 }

@@ -2,14 +2,21 @@ package com.twitche.twitche.Controller;
 
 import com.twitche.twitche.Model.Controller.SettingsControllerModel;
 import com.twitche.twitche.Model.SettingsDefaultOptions;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 import java.io.*;
 import java.net.URL;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -43,13 +50,16 @@ public class SettingsController implements Initializable {
     private TextField emoteSpecialOffer;
 
     @FXML
+    private TabPane tab;
+
+    @FXML
     private BorderPane mainWindows;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String data = "";
         try {
-            File file = new File("settings.txt");
+            File file = new File("settings.xml");
             if(file.exists()) {
                 Scanner scanner = new Scanner(file);
                 while (scanner.hasNextLine()) {
@@ -84,9 +94,56 @@ public class SettingsController implements Initializable {
     }
 
     @FXML
+    void addTab(ActionEvent event) {
+        if(tab.getTabs().size() < 6)
+            tab.getTabs().add(createEditableTab("newTab"));
+    }
+
+    public Tab createEditableTab(String text) {
+        final Label label = new Label(text);
+        final TextField textField1 = new TextField();
+        final Tab tab = new Tab("",textField1);
+        tab.setGraphic(label);
+        final TextField textField = new TextField();
+
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getClickCount()==2) {
+                    textField.setText(label.getText());
+                    tab.setGraphic(textField);
+                    textField.selectAll();
+                    textField.requestFocus();
+                }
+            }
+        });
+
+        textField.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                label.setText(textField.getText());
+                tab.setGraphic(label);
+            }
+        });
+
+
+        textField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable,
+                                Boolean oldValue, Boolean newValue) {
+                if (! newValue) {
+                    label.setText(textField.getText());
+                    tab.setGraphic(label);
+                }
+            }
+        });
+        return tab ;
+    }
+
+    @FXML
     void saveSettings() throws IOException {
 
-        PrintWriter writer = new PrintWriter("settings.txt");
+       /* PrintWriter writer = new PrintWriter("settings.txt");
         writer.print("");
         writer.close();
 
@@ -108,12 +165,25 @@ public class SettingsController implements Initializable {
         } catch (IOException e) {
 
         }
-        SettingsDefaultOptions.setContext(false);
+        SettingsDefaultOptions.setContext(false);*/
+        File myObj = new File("settings.xml");
+        myObj.delete();
+        Properties saveProps = new Properties();
+        saveProps.setProperty("emotePrice" , emotePrice.getText());
+        saveProps.setProperty("badgePrice" , badgePrice.getText());
+        saveProps.setProperty("emotePer" , emotePer.getText());
+        saveProps.setProperty("emotePricePer" , emotePricePer.getText());
+        saveProps.setProperty("BadgePer" , BadgePer.getText());
+        saveProps.setProperty("BadgePricePer" , BadgePricePer.getText());
+        saveProps.setProperty("emorePerSpecial" , emorePerSpecial.getText());
+        saveProps.setProperty("emoteSpecialOffer" , emoteSpecialOffer.getText());
+
+
+        saveProps.storeToXML(new FileOutputStream("settings.xml"), "");
     }
 
     @FXML
     void anyChange(KeyEvent event) {
-
         SettingsDefaultOptions.setContext(true);
         SettingsControllerModel.getInstance().setEmotePrice(emotePrice);
     }
